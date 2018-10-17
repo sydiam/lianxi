@@ -1,0 +1,28 @@
+'Access-Control-Allow-Origin' header
+is present on the requested resource.
+Origin 
+
+跨域:
+如果发送ajax请求:
+域名不同    a.com/1.html ->  b.com/2.html
+端口不同    http://127.0.0.1:8080 - > 
+            http://127.0.0.1:3000
+协议不同    http://127.0.0.1/1.html ->
+            https://127.0.0.1/2.html
+统称跨域访问
+
+
+
+解决方案:
+node.js 处理跨域第三方模块
+cors
+1:安装第三方模块
+cnpm i cors    #node_modules
+2:加载项目中
+const cors =  require("cors");
+3:指定哪个请求路径可以进行跨域访问
+app.use(cors({
+  origin:["http://127.0.0.1:8080",
+          "http://localhost:8080"],
+         credentials:true  
+  }));
